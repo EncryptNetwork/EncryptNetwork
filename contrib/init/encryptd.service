@@ -1,0 +1,26 @@
+[Unit]
+Description=DAPScoin's distributed currency daemon
+After=network.target
+
+[Service]
+User=encrypt
+Group=encrypt
+
+Type=forking
+PIDFile=/var/lib/encryptd/encryptd.pid
+
+ExecStart=/usr/bin/encryptd -daemon -pid=/var/lib/encryptd/encryptd.pid \
+          -conf=/etc/encrypt/encrypt.conf -datadir=/var/lib/encryptd
+
+ExecStop=-/usr/bin/encrypt-cli -conf=/etc/encrypt/encrypt.conf \
+         -datadir=/var/lib/encryptd stop
+
+Restart=always
+PrivateTmp=true
+TimeoutStopSec=60s
+TimeoutStartSec=2s
+StartLimitInterval=120s
+StartLimitBurst=5
+
+[Install]
+WantedBy=multi-user.target

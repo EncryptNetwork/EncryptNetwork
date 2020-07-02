@@ -1,0 +1,26 @@
+# /etc/conf.d/encryptd: config file for /etc/init.d/encryptd
+
+# Config file location
+#BITCOIND_CONFIGFILE="/etc/encrypt/encrypt.conf"
+
+# What directory to write pidfile to?  (created and owned by $BITCOIND_USER)
+#BITCOIND_PIDDIR="/var/run/encryptd"
+
+# What filename to give the pidfile
+#BITCOIND_PIDFILE="${BITCOIND_PIDDIR}/encryptd.pid"
+
+# Where to write encryptd data (be mindful that the blockchain is large)
+#BITCOIND_DATADIR="/var/lib/encryptd"
+
+# User and group to own encryptd process
+#BITCOIND_USER="encrypt"
+#BITCOIND_GROUP="encrypt"
+
+# Path to encryptd executable
+#BITCOIND_BIN="/usr/bin/encryptd"
+
+# Nice value to run encryptd under
+#BITCOIND_NICE=0
+
+# Additional options (avoid -conf and -datadir, use flags above)
+BITCOIND_OPTS=""
