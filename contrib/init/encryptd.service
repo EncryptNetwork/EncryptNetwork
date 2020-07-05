@@ -1,5 +1,5 @@
 [Unit]
-Description=DAPScoin's distributed currency daemon
+Description=Encrypt's distributed currency daemon
 After=network.target
 
 [Service]

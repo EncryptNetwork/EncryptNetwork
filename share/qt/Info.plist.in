@@ -29,7 +29,7 @@
   <string>????</string>
 
   <key>CFBundleExecutable</key>
-  <string>DAPScoin-Qt</string>
+  <string>Encrypt-Qt</string>
 
   <key>CFBundleIdentifier</key>
   <string>io.encrypt.Dapscoin-Qt</string>

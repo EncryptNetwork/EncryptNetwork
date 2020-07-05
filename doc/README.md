@@ -1,9 +1,9 @@
-DAPScoin
+Encrypt
 =====================
 
 Setup
 ---------------------
-[DAPScoin](https://officialencrypt.com/wallet) is the original DAPS client and it builds the backbone of the network. However, it downloads and stores the entire history of DAPS transactions; depending on the speed of your computer and network connection, the synchronization process can take anywhere from a few hours to a day or more. Thankfully you only have to do this once.
+[Encrypt](https://officialencrypt.com/wallet) is the original DAPS client and it builds the backbone of the network. However, it downloads and stores the entire history of DAPS transactions; depending on the speed of your computer and network connection, the synchronization process can take anywhere from a few hours to a day or more. Thankfully you only have to do this once.
 
 Running
 ---------------------
@@ -22,7 +22,7 @@ Unpack the files into a directory, and then run encrypt-qt.exe.
 
 ### OSX
 
-Drag DAPScoin-Qt to your applications folder, and then run DAPScoin-Qt.
+Drag Encrypt-Qt to your applications folder, and then run Encrypt-Qt.
 
 ### Need Help?
 
@@ -41,7 +41,7 @@ The following are developer notes on how to build DAPS on your native platform. 
 
 Development
 ---------------------
-The Dapscoin repo's [root README](https://github.com/DAPScoin-Project/DAPScoin/blob/master/README.md) contains relevant information on the development process and automated testing.
+The Dapscoin repo's [root README](https://github.com/Encrypt-Project/Encrypt/blob/master/README.md) contains relevant information on the development process and automated testing.
 
 - [Developer Notes](developer-notes.md)
 - [Multiwallet Qt Development](multiwallet-qt.md)
@@ -55,8 +55,8 @@ The Dapscoin repo's [root README](https://github.com/DAPScoin-Project/DAPScoin/b
 
 ### Resources
 
-* Discuss on the [BitcoinTalk](https://bitcointalk.org/index.php?topic=1262920.0) or the [DAPScoin](https://forum.officialencrypt.com/) forum.
-* Join the [DAPScoin-Dev](https://encrypt-dev.slack.com/) Slack group ([Sign-Up](https://encrypt-dev.herokuapp.com/)).
+* Discuss on the [BitcoinTalk](https://bitcointalk.org/index.php?topic=1262920.0) or the [Encrypt](https://forum.officialencrypt.com/) forum.
+* Join the [Encrypt-Dev](https://encrypt-dev.slack.com/) Slack group ([Sign-Up](https://encrypt-dev.herokuapp.com/)).
 
 ### Miscellaneous
 - [Assets Attribution](assets-attribution.md)

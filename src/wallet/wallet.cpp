@@ -5728,7 +5728,7 @@ void CWallet::SetNull()
 
     // Stake Settings
     nHashDrift = 45;
-    nStakeSplitThreshold = 10000;
+    nStakeSplitThreshold = 500;
     nHashInterval = 22;
     nStakeSetUpdateTime = 300; // 5 minutes
 
@@ -5743,7 +5743,7 @@ void CWallet::SetNull()
 
     //Auto Combine Dust
     fCombineDust = true;
-    nAutoCombineThreshold = 10000 * COIN;
+    nAutoCombineThreshold = 500 * COIN;
 }
 
 bool CWallet::isMultiSendEnabled()

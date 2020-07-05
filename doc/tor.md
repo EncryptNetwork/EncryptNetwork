@@ -1,4 +1,4 @@
-TOR SUPPORT IN DAPScoin
+TOR SUPPORT IN Encrypt
 =======================
 
 It is possible to run DAPS as a Tor hidden service, and connect to such services.

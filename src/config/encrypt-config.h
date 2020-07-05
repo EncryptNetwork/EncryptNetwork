@@ -271,10 +271,10 @@
 #define PACKAGE_BUGREPORT "https://github.com/DAPSCoin/DAPSCoin/issues"
 
 /* Define to the full name of this package. */
-#define PACKAGE_NAME "DAPScoin"
+#define PACKAGE_NAME "Encrypt"
 
 /* Define to the full name and version of this package. */
-#define PACKAGE_STRING "DAPScoin 1.0.0"
+#define PACKAGE_STRING "Encrypt 1.0.0"
 
 /* Define to the one symbol short name of this package. */
 #define PACKAGE_TARNAME "encrypt"

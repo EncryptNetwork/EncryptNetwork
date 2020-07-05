@@ -89,7 +89,7 @@ use old versions of Upstart and do not supply the start-stop-daemon uitility.
 Copy encryptd.init to /etc/init.d/encryptd. Test by running "service encryptd start".
 
 Using this script, you can adjust the path and flags to the encryptd program by
-setting the DAPScoinD and FLAGS environment variables in the file
+setting the EncryptD and FLAGS environment variables in the file
 /etc/sysconfig/encryptd. You can also use the DAEMONOPTS environment variable here.
 
 5. Auto-respawn

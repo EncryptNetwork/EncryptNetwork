@@ -89,12 +89,12 @@ unsigned int nCoinCacheSize = 5000;
 /* If the tip is older than this (in seconds), the node is considered to be in initial block download. */
 int64_t nMaxTipAge = DEFAULT_MAX_TIP_AGE;
 
-unsigned int nStakeMinAge = 60 * 60;
+unsigned int nStakeMinAge = 40 * 60;
 
-const int MIN_RING_SIZE = 11;
-const int MAX_RING_SIZE = 15;
+const int MIN_RING_SIZE = 5;
+const int MAX_RING_SIZE = 64;
 const int MAX_TX_INPUTS = 50;
-const int MIN_TX_INPUTS_FOR_SWEEPING = 25;
+const int MIN_TX_INPUTS_FOR_SWEEPING = 10;
 
 /** Fees smaller than this (in duffs) are considered zero fee (for relaying and mining)
  * We are ~100 times smaller then bitcoin now (2015-06-23), set minRelayTxFee only 10 times higher
@@ -2171,11 +2171,11 @@ int64_t GetBlockValue(const CBlockIndex* ptip)
     }
 
     if (pForkTip->nMoneySupply >= Params().TOTAL_SUPPLY) {
-        //zero rewards when total supply reach 70B XCX
+        //zero rewards when total supply reached
         return 0;
     }
     if (pForkTip->nHeight < Params().LAST_POW_BLOCK()) {
-        nSubsidy = 400000 * COIN;
+        nSubsidy = 100000 * COIN;
     } else {
         nSubsidy = PoSBlockReward();
         nSubsidy += TeamRewards(pForkTip);

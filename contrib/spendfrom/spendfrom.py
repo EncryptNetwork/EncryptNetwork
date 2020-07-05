@@ -35,9 +35,9 @@ def check_json_precision():
 def determine_db_dir():
     """Return the default location of the encrypt data directory"""
     if platform.system() == "Darwin":
-        return os.path.expanduser("~/Library/Application Support/DAPScoin/")
+        return os.path.expanduser("~/Library/Application Support/Encrypt/")
     elif platform.system() == "Windows":
-        return os.path.join(os.environ['APPDATA'], "DAPScoin")
+        return os.path.join(os.environ['APPDATA'], "Encrypt")
     return os.path.expanduser("~/.encrypt")
 
 def read_bitcoin_config(dbdir):

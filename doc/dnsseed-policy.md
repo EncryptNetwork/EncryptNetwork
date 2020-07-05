@@ -28,7 +28,7 @@ urgent technical necessity and disclosed.
 3. The results may not be served with a DNS TTL of less than one minute.
 
 4. Any logging of DNS queries should be only that which is necessary
-for the operation of the service or urgent health of the DAPScoin
+for the operation of the service or urgent health of the Encrypt
 network and must not be retained longer than necessary or disclosed
 to any third party.
 
@@ -44,7 +44,7 @@ details of their operating practices.
 related to the DNS seed operation.
 
 If these expectations cannot be satisfied the operator should
-discontinue providing services and contact the active DAPScoin
+discontinue providing services and contact the active Encrypt
 Core development team as well as posting on the
 [DAPS Forum](https://forum.officialencrypt.com).
 

@@ -23,8 +23,8 @@ Build-Depends: debhelper,
  libprotobuf-dev, protobuf-compiler
 Standards-Version: 3.9.2
 Homepage: http://www.encrypt.org
-Vcs-Git: git://github.com/DAPScoin-Project/DAPScoin.git
-Vcs-Browser: http://github.com/DAPScoin-Project/DAPScoin
+Vcs-Git: git://github.com/Encrypt-Project/Encrypt.git
+Vcs-Browser: http://github.com/Encrypt-Project/Encrypt
 
 Package: encryptd
 Architecture: any

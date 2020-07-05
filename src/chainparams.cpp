@@ -99,17 +99,17 @@ public:
          * The characters are rarely used upper ASCII, not valid as UTF-8, and produce
          * a large 4-byte int at any alignment.
          */
-        pchMessageStart[0] = 0x75;// X
-        pchMessageStart[1] = 0x28;// C
-        pchMessageStart[2] = 0x76;// X
-        pchMessageStart[3] = 0x75;// X
+        pchMessageStart[0] = 0x33;// E
+        pchMessageStart[1] = 0x53;// N
+        pchMessageStart[2] = 0x28;// C
+        pchMessageStart[3] = 0x60;// R
         nDefaultPort = 2020;
         bnProofOfWorkLimit = ~uint256(0) >> 1; // EncryptCore starting difficulty is 1 / 2^12
         nSubsidyHalvingInterval = 210000;
         nMaxReorganizationDepth = 100;
-        nEnforceBlockUpgradeMajority = 750;
-        nRejectBlockOutdatedMajority = 950;
-        nToCheckBlockUpgradeMajority = 1000;
+        nEnforceBlockUpgradeMajority = 2250;
+        nRejectBlockOutdatedMajority = 2450;
+        nToCheckBlockUpgradeMajority = 2650;
         nMinerThreads = 0;
         nTargetTimespan = 1 * 60; //
         nTargetSpacing = 1 * 60;  // EncryptCore: 1 minute
@@ -119,8 +119,8 @@ public:
         nMaxMoneyOut = MAX_MONEY * COIN;
 
         /** Height or Time Based Activations **/
-        nLastPOWBlock = 500;
-        nStartPOABlock = 560;
+        nLastPOWBlock = 2000;
+        nStartPOABlock = 2060;
         nModifierUpdateBlock = 615800;
         nPoABlockTime = 60 * 60; 
         nMinNumPoSBlocks = 59;

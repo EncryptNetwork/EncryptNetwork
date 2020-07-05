@@ -1,11 +1,11 @@
-Name "DAPScoin (-bit)"
+Name "Encrypt (-bit)"
 
 RequestExecutionLevel highest
 SetCompressor /SOLID lzma
 
 # General Symbol Definitions
 !define REGKEY "SOFTWARE\$(^Name)"
-!define COMPANY "DAPScoin project"
+!define COMPANY "Encrypt project"
 !define URL https://officialencrypt.com
 
 # MUI Symbol Definitions
@@ -18,7 +18,7 @@ SetCompressor /SOLID lzma
 !define MUI_STARTMENUPAGE_REGISTRY_ROOT HKLM
 !define MUI_STARTMENUPAGE_REGISTRY_KEY ${REGKEY}
 !define MUI_STARTMENUPAGE_REGISTRY_VALUENAME StartMenuGroup
-!define MUI_STARTMENUPAGE_DEFAULTFOLDER "DAPScoin"
+!define MUI_STARTMENUPAGE_DEFAULTFOLDER "Encrypt"
 !define MUI_FINISHPAGE_RUN $INSTDIR\encrypt-qt
 !define MUI_UNICON "${NSISDIR}\Contrib\Graphics\Icons\modern-uninstall.ico"
 !define MUI_UNWELCOMEFINISHPAGE_BITMAP "/home/remapper/DAPSCoin/share/pixmaps/nsis-wizard.bmp"
@@ -49,16 +49,16 @@ Var StartMenuGroup
 # Installer attributes
 OutFile /home/remapper/DAPSCoin/encrypt-1.0.0-win-setup.exe
 !if "" == "64"
-InstallDir $PROGRAMFILES64\DAPScoin
+InstallDir $PROGRAMFILES64\Encrypt
 !else
-InstallDir $PROGRAMFILES\DAPScoin
+InstallDir $PROGRAMFILES\Encrypt
 !endif
 CRCCheck on
 XPStyle on
 BrandingText " "
 ShowInstDetails show
 VIProductVersion 1.0.0.0
-VIAddVersionKey ProductName "DAPScoin"
+VIAddVersionKey ProductName "Encrypt"
 VIAddVersionKey ProductVersion "1.0.0"
 VIAddVersionKey CompanyName "${COMPANY}"
 VIAddVersionKey CompanyWebsite "${URL}"
@@ -103,7 +103,7 @@ Section -post SEC0001
     WriteRegDWORD HKCU "SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\$(^Name)" NoModify 1
     WriteRegDWORD HKCU "SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\$(^Name)" NoRepair 1
     WriteRegStr HKCR "encrypt" "URL Protocol" ""
-    WriteRegStr HKCR "encrypt" "" "URL:DAPScoin"
+    WriteRegStr HKCR "encrypt" "" "URL:Encrypt"
     WriteRegStr HKCR "encrypt\DefaultIcon" "" $INSTDIR\encrypt-qt
     WriteRegStr HKCR "encrypt\shell\open\command" "" '"$INSTDIR\encrypt-qt" "%1"'
 SectionEnd
@@ -135,7 +135,7 @@ Section -un.post UNSEC0001
     DeleteRegKey HKCU "SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\$(^Name)"
     Delete /REBOOTOK "$SMPROGRAMS\$StartMenuGroup\Uninstall $(^Name).lnk"
     Delete /REBOOTOK "$SMPROGRAMS\$StartMenuGroup\$(^Name).lnk"
-    Delete /REBOOTOK "$SMSTARTUP\DAPScoin.lnk"
+    Delete /REBOOTOK "$SMSTARTUP\Encrypt.lnk"
     Delete /REBOOTOK $INSTDIR\uninstall.exe
     Delete /REBOOTOK $INSTDIR\debug.log
     Delete /REBOOTOK $INSTDIR\db.log

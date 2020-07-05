@@ -52,7 +52,7 @@ System requirements
 --------------------
 
 C++ compilers are memory-hungry. It is recommended to have at least 1 GB of
-memory available when compiling DAPScoin. With 512MB of memory or less
+memory available when compiling Encrypt. With 512MB of memory or less
 compilation will take much longer due to swap thrashing.
 
 Dependency Build Instructions: Ubuntu & Debian
@@ -85,7 +85,7 @@ Optional:
 Dependencies for the GUI: Ubuntu & Debian
 -----------------------------------------
 
-If you want to build DAPScoin-Qt, make sure that the required packages for Qt development
+If you want to build Encrypt-Qt, make sure that the required packages for Qt development
 are installed. Qt 5 is necessary to build the GUI.
 If both Qt 4 and Qt 5 are installed, Qt 5 will be used.
 To build without GUI pass `--without-gui`.
@@ -134,10 +134,10 @@ Berkeley DB
 It is recommended to use Berkeley DB 4.8. If you have to build it yourself:
 
 ```bash
-DAPScoin_ROOT=$(pwd)
+Encrypt_ROOT=$(pwd)
 
 # Pick some path to install BDB to, here we create a directory within the encrypt directory
-BDB_PREFIX="${DAPScoin_ROOT}/db4"
+BDB_PREFIX="${Encrypt_ROOT}/db4"
 mkdir -p $BDB_PREFIX
 
 # Fetch the source and verify that it is not tampered with
@@ -153,7 +153,7 @@ cd db-4.8.30.NC/build_unix/
 make install
 
 # Configure DAPS to use our own-built instance of BDB
-cd $DAPScoin_ROOT
+cd $Encrypt_ROOT
 ./configure (other args...) LDFLAGS="-L${BDB_PREFIX}/lib/" CPPFLAGS="-I${BDB_PREFIX}/include/"
 ```
 
