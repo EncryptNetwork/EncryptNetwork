@@ -8,6 +8,7 @@ ENCRYPT/$XCX solves this. ENCRYPT is the network, $XCX is the cryptocurrency use
 Users will be rewarded additional $XCX for either running a masternode, staking or mining via a blend of POW, POS and POA algorithms.
 
 Specs:
+
 Ticker: $XCX
 Algo: POA/POS
 Max supply: 10Bn
