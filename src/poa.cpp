@@ -22,7 +22,7 @@ unsigned int N_BITS_SF = 0x1e050000;
 unsigned int GetNextWorkRequired(const CBlockIndex* pindexLast, const CBlockHeader* pblock)
 {
     if (N_BITS != 0 && pblock->IsPoABlockByVersion()) {
-        if (pindexLast->nHeight < 125000) {
+        if (pindexLast->nHeight < 10000) {
             return N_BITS;
         }
         return N_BITS_SF;
@@ -63,7 +63,7 @@ unsigned int GetNextWorkRequired(const CBlockIndex* pindexLast, const CBlockHead
         // ppcoin: target change every block
         // ppcoin: retarget with exponential moving toward target spacing
         uint256 bnNew;
-        if (pindexLast->nHeight < 125000) {
+        if (pindexLast->nHeight < 10000) {
             bnNew.SetCompact(pindexLast->nBits);
         } else {
             if (pindexLast->IsProofOfStake()) {

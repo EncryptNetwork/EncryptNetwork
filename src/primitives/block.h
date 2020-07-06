@@ -156,7 +156,7 @@ public:
 
     // memory only
     mutable CScript payee;
-    mutable std::vector<uint256> vMerkleTree;
+    mutable bool fChecked;
     mutable std::vector<uint256> poaMerkleTree;
 
     CBlock()
@@ -187,8 +187,8 @@ public:
     {
         CBlockHeader::SetNull();
         vtx.clear();
+		fChecked = false;
         posBlocksAudited.clear();
-        vMerkleTree.clear();
         poaMerkleTree.clear();
         payee = CScript();
         vchBlockSig.clear();
@@ -245,16 +245,12 @@ public:
     // If non-NULL, *mutated is set to whether mutation was detected in the merkle
     // tree (a duplication of transactions in the block leading to an identical
     // merkle root).
-    uint256 BuildMerkleTree(bool* mutated = NULL) const;
+    uint256 ComputeMerkleRoot(bool* mutated = NULL) const;
 
-    std::vector<uint256> GetMerkleBranch(int nIndex) const;
-    static uint256 CheckMerkleBranch(uint256 hash, const std::vector<uint256>& vMerkleBranch, int nIndex);
     std::string ToString() const;
     void print() const;
     
     uint256 BuildPoAMerkleTree(bool* mutated = NULL) const;
-    std::vector<uint256> GetPoAMerkleBranch(int nIndex) const;
-    static uint256 CheckPoAMerkleBranch(uint256 hash, const std::vector<uint256>& vMerkleBranch, int nIndex);
 };
 
 
