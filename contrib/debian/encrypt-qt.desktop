@@ -1,0 +1,12 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=Encryptcoin
+Comment=Encryptcoin P2P Cryptocurrency
+Comment[fr]=Encryptcoin, monnaie virtuelle cryptographique pair à pair
+Comment[tr]=Encryptcoin, eşten eşe kriptografik sanal para birimi
+Exec=encrypt-qt %u
+Terminal=false
+Type=Application
+Icon=encrypt128
+MimeType=x-scheme-handler/encrypt;
+Categories=Office;Finance;
