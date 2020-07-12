@@ -2202,13 +2202,13 @@ int64_t GetBlockValue(const CBlockIndex* ptip)
         //zero rewards when total supply reach 10B XCX
         return 0;
     }
-    if (pForkTip->nHeight = 0 && pForkTip->nHeight <= 100 ) {
-        nSubsidy = 10 * COIN; //for airdrops (to be distributed to the community)
+    if (pForkTip->nHeight = 0 && pForkTip->nHeight <= 1 ) {
+        nSubsidy = 100000 * COIN; //for airdrops (to be distributed to the community)
     }
-    else if (pForkTip->nHeight > 100 && pForkTip->nHeight <= 500 ) {
-        nSubsidy = 8 * COIN; //bounties (reward for the community)
+    else if (pForkTip->nHeight > 1 && pForkTip->nHeight <= 2 ) {
+        nSubsidy = 400000 * COIN; //bounties (reward for the community)
     }
-    else if (pForkTip->nHeight > 500 &&  < Params().LAST_POW_BLOCK()) {
+    else if (pForkTip->nHeight > 2 &&  < Params().LAST_POW_BLOCK()) {
         nSubsidy = 600000 * COIN; 
     } else {
         nSubsidy = PoSBlockReward();
