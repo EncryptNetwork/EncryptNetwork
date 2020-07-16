@@ -35,6 +35,30 @@ QDialog {
   );
 }
 
+#HistoryPage {
+  border-image: url(':/images/background') 0 0 0 0 stretch stretch;
+}
+
+#MasternodeList {
+  border-image: url(':/images/background') 0 0 0 0 stretch stretch;
+}
+
+#OptionsPage {
+  border-image: url(':/images/background') 0 0 0 0 stretch stretch;
+}
+
+#OverviewPage {
+  border-image: url(':/images/background') 0 0 0 0 stretch stretch;
+}
+
+#ReceiveCoinsDialog {
+  border-image: url(':/images/background') 0 0 0 0 stretch stretch;
+}
+
+#SendCoinsDialog {
+  border-image: url(':/images/background') 0 0 0 0 stretch stretch;
+}
+
 #line_1, #line_2, #line_3,
 #line_4, #line_5, #line_6 {
   border-bottom: 1px solid gray;

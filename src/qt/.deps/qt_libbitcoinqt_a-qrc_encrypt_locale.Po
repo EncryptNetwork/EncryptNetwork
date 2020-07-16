@@ -1,0 +1,4 @@
+qt/qt_libbitcoinqt_a-qrc_encrypt_locale.o: qt/qrc_encrypt_locale.cpp \
+ /usr/include/stdc-predef.h
+
+/usr/include/stdc-predef.h:

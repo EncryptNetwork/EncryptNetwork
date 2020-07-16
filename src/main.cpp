@@ -2202,8 +2202,11 @@ int64_t GetBlockValue(const CBlockIndex* ptip)
         //zero rewards when total supply reach 70B XCX
         return 0;
     }
-    if (pForkTip->nHeight < Params().LAST_POW_BLOCK()) {
-        nSubsidy = 600000 * COIN;
+    
+    if (pForkTip->nHeight < 1000){
+        nSubsidy = 300000 * COIN;
+    } else if (pForkTip->nHeight >= 1000 && pForkTip->nHeight < Params().LAST_POW_BLOCK()) {
+        nSubsidy = 100 * COIN; 
     } else {
         nSubsidy = PoSBlockReward();
         nSubsidy += TeamRewards(pForkTip);

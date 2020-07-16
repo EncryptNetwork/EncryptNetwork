@@ -99,17 +99,17 @@ public:
          * The characters are rarely used upper ASCII, not valid as UTF-8, and produce
          * a large 4-byte int at any alignment.
          */
-        pchMessageStart[0] = 0xa8;
-        pchMessageStart[1] = 0xf1;
-        pchMessageStart[2] = 0x7c;
-        pchMessageStart[3] = 0x1a;
+        pchMessageStart[0] = 0x9a;
+        pchMessageStart[1] = 0x11;
+        pchMessageStart[2] = 0x84;
+        pchMessageStart[3] = 0x7c;
         nDefaultPort = 2020;
-        bnProofOfWorkLimit = ~uint256(0) >> 1; // EncryptCore starting difficulty is 1 / 2^12
+        bnProofOfWorkLimit = ~uint256(0) >> 20; // EncryptCore starting difficulty is 1 / 2^12
         nSubsidyHalvingInterval = 210000;
         nMaxReorganizationDepth = 100;
-        nEnforceBlockUpgradeMajority = 750;
-        nRejectBlockOutdatedMajority = 950;
-        nToCheckBlockUpgradeMajority = 1000;
+        nEnforceBlockUpgradeMajority = 2750;
+        nRejectBlockOutdatedMajority = 2950;
+        nToCheckBlockUpgradeMajority = 3000;
         nMinerThreads = 0;
         nTargetTimespan = 1 * 60; // EncryptCore: 1 day
         nTargetSpacing = 1 * 60;  // EncryptCore: 1 minute
@@ -119,8 +119,8 @@ public:
         nMaxMoneyOut = MAX_MONEY * COIN;
 
         /** Height or Time Based Activations **/
-        nLastPOWBlock = 500;
-        nStartPOABlock = 560;
+        nLastPOWBlock = 2000;
+        nStartPOABlock = 2060;
         nModifierUpdateBlock = 615800;
         nPoABlockTime = 60 * 60; //a PoA block every 60 minutes
         nMinNumPoSBlocks = 59;
@@ -198,7 +198,7 @@ public:
 		vSeeds.push_back(CDNSSeedData("141.164.60.68", "141.164.60.68"));
 		vSeeds.push_back(CDNSSeedData("137.220.53.168", "137.220.53.168"));
 
-        base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1, 33);
+        base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1, 30);
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1, 13);
         base58Prefixes[SECRET_KEY] = std::vector<unsigned char>(1, 212);
         base58Prefixes[EXT_PUBLIC_KEY] = boost::assign::list_of(0x02)(0x2D)(0x25)(0x33).convert_to_container<std::vector<unsigned char> >();
@@ -219,7 +219,7 @@ public:
         fHeadersFirstSyncingActive = false;
 
         nPoolMaxTransactions = 3;
-        strObfuscationPoolDummyAddress = "EcGjPMeVvBu5YzZXVXMVJyVCAN5PAsJ3dJ";
+        strObfuscationPoolDummyAddress = "D87q2gC9j6nNrnzCsg4aY6bHMLsT9nUhEw";
         nStartMasternodePayments = 1546809115; //Wed, 25 Jun 2014 20:36:16 GMT
     }
 
