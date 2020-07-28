@@ -1362,7 +1362,7 @@ int GetInputAge(CTxIn& vin)
 
         if (coins) {
             if (coins->nHeight < 0) return 0;
-            return (chainActive.Tip()->nHeight + 1) - coins->nHeight;
+            return WITH_LOCK(cs_main, return chainActive.Height() + 1) - coins->nHeight;
         } else
             return -1;
     }
@@ -2315,17 +2315,22 @@ int64_t GetMasternodePayment(int nHeight, int64_t blockValue, int nMasternodeCou
 
 bool IsInitialBlockDownload()
 {
+	// Once this function has returned false, it must remain false.
+    static std::atomic<bool> latchToFalse{false};
+    // Optimization: pre-test latch before taking the lock.
+    if (latchToFalse.load(std::memory_order_relaxed))
+        return false;
+	
     LOCK(cs_main);
+	if (latchToFalse.load(std::memory_order_relaxed))
+         return false;
     const int chainHeight = chainActive.Height();
     if (fImporting || fReindex || fVerifyingBlocks || chainHeight < Checkpoints::GetTotalBlocksEstimate())
         return true;
-    static bool lockIBDState = false;
-    if (lockIBDState)
-        return false;
     bool state = (chainHeight < pindexBestHeader->nHeight - 24 * 6 ||
                   pindexBestHeader->GetBlockTime() < GetTime() - nMaxTipAge);
     if (!state)
-        lockIBDState = true;
+        latchToFalse.store(true, std::memory_order_relaxed);
     return state;
 }
 
@@ -3456,77 +3461,6 @@ void RemoveInvalidTransactionsFromMempool()
     for(size_t i = 0; i < tobeRemoveds.size(); i++) {
         mempool.remove(tobeRemoveds[i], removed, true);
     }
-}
-
-/*
-    DisconnectBlockAndInputs
-
-    Remove conflicting blocks for successful SwiftX transaction locks
-    This should be very rare (Probably will never happen)
-*/
-// ***TODO*** clean up here
-bool DisconnectBlockAndInputs(CValidationState& state, CTransaction txLock)
-{
-    // All modifications to the coin state will be done in this cache.
-    // Only when all have succeeded, we push it to pcoinsTip.
-    //    CCoinsViewCache view(*pcoinsTip, true);
-
-    CBlockIndex* BlockReading = chainActive.Tip();
-    CBlockIndex* pindexNew = NULL;
-
-    bool foundConflictingTx = false;
-
-    //remove anything conflicting in the memory pool
-    list<CTransaction> txConflicted;
-    mempool.removeConflicts(txLock, txConflicted);
-
-
-    // List of what to disconnect (typically nothing)
-    vector<CBlockIndex*> vDisconnect;
-
-    for (unsigned int i = 1; BlockReading && BlockReading->nHeight > 0 && !foundConflictingTx && i < 6; i++) {
-        vDisconnect.push_back(BlockReading);
-        pindexNew = BlockReading->pprev; //new best block
-
-        CBlock block;
-        if (!ReadBlockFromDisk(block, BlockReading))
-            return state.Abort(_("Failed to read block"));
-
-        // Queue memory transactions to resurrect.
-        // We only do this for blocks after the last checkpoint (reorganisation before that
-        // point should only happen with -reindex/-loadblock, or a misbehaving peer.
-        for (const CTransaction& tx : block.vtx) {
-            if (!tx.IsCoinBase()) {
-                for (const CTxIn& in1 : txLock.vin) {
-                    for (const CTxIn& in2 : tx.vin) {
-                        if (in1.prevout == in2.prevout) foundConflictingTx = true;
-                    }
-                }
-            }
-        }
-
-        if (BlockReading->pprev == NULL) {
-            assert(BlockReading);
-            break;
-        }
-        BlockReading = BlockReading->pprev;
-    }
-
-    if (!foundConflictingTx) {
-        LogPrintf("DisconnectBlockAndInputs: Can't find a conflicting transaction to inputs\n");
-        return false;
-    }
-
-    if (vDisconnect.size() > 0) {
-        LogPrintf("REORGANIZE: Disconnect Conflicting Blocks %lli blocks; %s..\n", vDisconnect.size(),
-            pindexNew->GetBlockHash().ToString());
-        for (CBlockIndex* pindex : vDisconnect) {
-            LogPrintf(" -- disconnect %s\n", pindex->GetBlockHash().ToString());
-            DisconnectTip(state);
-        }
-    }
-
-    return true;
 }
 
 

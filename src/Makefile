@@ -122,7 +122,7 @@ am__append_15 = $(LIBLEVELDB_INT)
 am__append_16 = $(LIBMEMENV_INT)
 am__append_17 = -I$(srcdir)/leveldb/include \
 	-I$(srcdir)/leveldb/helpers/memenv
-#am__append_18 = -DLEVELDB_PLATFORM_WINDOWS -DWINVER=0x0500 -D__USE_MINGW_ANSI_STDIO=1
+#am__append_18 = -DLEVELDB_PLATFORM_WINDOWS -D__USE_MINGW_ANSI_STDIO=1
 am__append_19 = -DLEVELDB_PLATFORM_POSIX
 #am__append_20 = leveldb/util/env_win.cc \
 #	leveldb/port/port_win.cc
@@ -1636,7 +1636,7 @@ PTHREAD_CC = gcc -m64
 PTHREAD_CFLAGS = -pthread
 PTHREAD_LIBS = 
 PYTHON = /usr/bin/python3
-PYTHONPATH = /home/remapper/Encrypt/depends/x86_64-pc-linux-gnu/share/../native/lib/python3/dist-packages:
+PYTHONPATH = /home/remapper/Encrypt/depends/x86_64-pc-linux-gnu/share/../native/lib/python3/dist-packages:/home/remapper/Encrypt/depends/x86_64-pc-linux-gnu/share/../native/lib/python3/dist-packages:
 QR_CFLAGS = -I/home/remapper/Encrypt/depends/x86_64-pc-linux-gnu/include
 QR_LIBS = -L/home/remapper/Encrypt/depends/x86_64-pc-linux-gnu/lib -lqrencode -lpthread
 QT5_CFLAGS = -I/home/remapper/Encrypt/depends/x86_64-pc-linux-gnu/include/QtNetwork -I/home/remapper/Encrypt/depends/x86_64-pc-linux-gnu/include/QtWidgets -I/home/remapper/Encrypt/depends/x86_64-pc-linux-gnu/include/QtGui -I/home/remapper/Encrypt/depends/x86_64-pc-linux-gnu/include/QtConcurrent -I/home/remapper/Encrypt/depends/x86_64-pc-linux-gnu/include/QtCore
