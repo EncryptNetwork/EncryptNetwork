@@ -4153,7 +4153,7 @@ bool CheckWork(const CBlock block, CBlockIndex* const pindexPrev)
     if (pindexPrev == NULL)
         return error("%s : null pindexPrev for block %s", __func__, block.GetHash().ToString().c_str());
     unsigned int nBitsRequired = GetNextWorkRequired(pindexPrev, &block);
-    if (block.IsProofOfWork() && (pindexPrev->nHeight + 1 <= 68589)) {
+    if (block.IsProofOfWork() && (pindexPrev->nHeight + 1 <= 30000)) {
         double n1 = ConvertBitsToDouble(block.nBits);
         double n2 = ConvertBitsToDouble(nBitsRequired);
 
@@ -5658,7 +5658,8 @@ bool static ProcessMessage(CNode* pfrom, string strCommand, CDataStream& vRecv, 
             vRecv >> LIMITED_STRING(pfrom->strSubVer, MAX_SUBVERSION_LENGTH);
             pfrom->cleanSubVer = SanitizeString(pfrom->strSubVer);
         }
-        if (pfrom->strSubVer == "/EncryptCore:0.27.5.1/" || pfrom->strSubVer == "/EncryptCore:1.0.0/" || pfrom->strSubVer == "/EncryptCore:1.0.1/" || pfrom->strSubVer == "/XCX:1.0.1.3/" || pfrom->strSubVer == "/XCX:1.0.2/" || pfrom->strSubVer == "/XCX:1.0.3.4/" || pfrom->strSubVer == "/XCX:1.0.4.6/") {
+		
+		if (pfrom->strSubVer == "/EncryptCore:0.27.5.1/" || pfrom->strSubVer == "/EncryptCore:1.0.0/" || pfrom->strSubVer == "/EncryptCore:1.0.1/" || pfrom->strSubVer == "/XCX:1.0.1.3/" || pfrom->strSubVer == "/XCX:1.0.2/" || pfrom->strSubVer == "/XCX:1.0.3.4/" || pfrom->strSubVer == "/XCX:1.0.4.6/") {
                 // disconnect from peers other than these sub versions
                 LogPrintf("partner %s using obsolete version %s; banning and disconnecting\n", pfrom->addr.ToString().c_str(), pfrom->strSubVer.c_str());
                 state->fShouldBan = true;
