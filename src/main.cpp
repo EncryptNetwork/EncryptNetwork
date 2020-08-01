@@ -5659,12 +5659,18 @@ bool static ProcessMessage(CNode* pfrom, string strCommand, CDataStream& vRecv, 
             pfrom->cleanSubVer = SanitizeString(pfrom->strSubVer);
         }
 		
-		if (pfrom->strSubVer == "/EncryptCore:0.27.5.1/" || pfrom->strSubVer == "/EncryptCore:1.0.0/" || pfrom->strSubVer == "/EncryptCore:1.0.1/" || pfrom->strSubVer == "/XCX:1.0.1.3/" || pfrom->strSubVer == "/XCX:1.0.2/" || pfrom->strSubVer == "/XCX:1.0.3.4/" || pfrom->strSubVer == "/XCX:1.0.4.6/") {
+    CBlockIndex* pindexPrev = chainActive.Tip();
+    if (pindexPrev == NULL) return -1;
+
+    if (pindexPrev->nHeight >30000){
+		
+		if (pfrom->strSubVer == "/EncryptCore:1.3.0/" || pfrom->strSubVer == "/XCX:1.3.0/") {
                 // disconnect from peers other than these sub versions
                 LogPrintf("partner %s using obsolete version %s; banning and disconnecting\n", pfrom->addr.ToString().c_str(), pfrom->strSubVer.c_str());
                 state->fShouldBan = true;
                 pfrom->fDisconnect = true;
                 return false;
+		    }
         }
         if (!vRecv.empty())
             vRecv >> pfrom->nStartingHeight;
